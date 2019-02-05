@@ -2,6 +2,8 @@
 Demonstrates Camel test coverage:
 
 mvn clean test camel:route-coverage -DCamelTestRouteCoverage=true -Dtest=HttpRequestTest
+
+
 mvn clean test camel:route-coverage -DCamelTestRouteCoverage=true -Dtest=RouteTest
 
 Also EleasticSearch custom request object usage

@@ -3,13 +3,16 @@
 Application that demonstrates how to generate Camel REST DSL from swagger file
 
 $ mvn camel-restdsl-swagger:generate
+
 $ mvn spring-boot:run
 
 Go to link:http://localhost:8080[]
+
 Go to link:http://localhost:8080/camel/v2/store/inventory[]
 
 
 Or use swagger tool directly to generate a Java project
+
 swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l java -o
 
 

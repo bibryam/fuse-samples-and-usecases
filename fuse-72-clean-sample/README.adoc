@@ -1,8 +1,10 @@
 
 == Other notes
 A clean Spring Boot Camel app
+
+
  Generated at https://developers.redhat.com/launch.
- 
+
 
 = REST API Level 0 - Fuse Booster
 

@@ -1,17 +1,10 @@
-
 == Other notes
-Application that demonstrates how to generate Camel REST DSL from swagger file
+Demonstrates Camel test coverage:
 
-$ mvn camel-restdsl-swagger:generate
-$ mvn spring-boot:run
+mvn clean test camel:route-coverage -DCamelTestRouteCoverage=true -Dtest=HttpRequestTest
+mvn clean test camel:route-coverage -DCamelTestRouteCoverage=true -Dtest=RouteTest
 
-Go to link:http://localhost:8080[]
-Go to link:http://localhost:8080/camel/v2/store/inventory[]
-
-
-Or use swagger tool directly to generate a Java project
-swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l java -o
-
+Also EleasticSearch custom request object usage
 
 = REST API Level 0 - Fuse Booster
 
@@ -87,6 +80,48 @@ Wait until you can see that the pod for the `fuse-rest-http-booster` application
 `http://fuse-rest-http-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
 
 . Click the URL to access the Greeting Service and then follow the instructions on that page.
+
+[#single-node-without-preinstalled-images]
+=== Running the booster on a single-node OpenShift cluster without preinstalled images
+To deploy your booster to a running single-node OpenShift cluster without preinstalled images:
+
+. Download the project and extract the archive on your local filesystem.
+
+. Log in to your OpenShift cluster:
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ oc login -u developer -p developer
+----
+
+. Create a new OpenShift project for the booster:
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ oc new-project MY_PROJECT_NAME
+----
+
+. Import base images in your newly created project (MY_PROJECT_NAME):
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ oc import-image fis-java-openshift:2.0 --from={image} --confirm
+----
+
+. Build and deploy the project to the OpenShift cluster:
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ mvn clean -DskipTests fabric8:deploy -Popenshift -Dfabric8.generator.fromMode=istag -Dfabric8.generator.from=MY_PROJECT_NAME/fis-java-openshift:2.0
+----
+
+. In your browser, navigate to the `MY_PROJECT_NAME` project in the OpenShift console.
+Wait until you can see that the pod for the `fuse-rest-http-booster` application has started up.
+
+. On the project's `Overview` page, locate the URL for the `fuse-rest-http-booster` application. The URL uses this form:
+`http://fuse-rest-http-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
+
+. Click the URL to access the greetings service application and then follow the instructions on that page.
 
 == Running the booster on OpenShift Online
 

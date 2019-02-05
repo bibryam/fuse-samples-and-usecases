@@ -1,5 +1,6 @@
 package com.redhat.fuse.boosters.rest.http;
 
+import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import org.apache.camel.test.spring.EnableRouteCoverage;
 
-@RunWith(SpringRunner.class)
+@RunWith(CamelSpringBootRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EnableRouteCoverage
 public class HttpRequestTest {

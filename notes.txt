@@ -1,0 +1,21 @@
+How to set a custom context for REST DSL with 'servlet' on Spring Boot
+
+camel.component.servlet.mapping.context-path=/foo/v1/*
+
+restConfiguration()
+            .apiContextPath("/api-doc")
+            .apiProperty("api.title", "Greeting REST API")
+            .apiProperty("api.version", "1.0")
+            .apiProperty("cors", "true")
+            .apiProperty("base.path", "/foo/v1/")
+            .apiProperty("api.path", "/")
+            .apiProperty("host", "")
+            .apiContextRouteId("doc-api")
+        .component("servlet")
+        .bindingMode(RestBindingMode.json);
+
+http://localhost:8080/webjars/swagger-ui/index.html?url=/foo/v1/api-doc&validatorUrl=#/greetings/greeting-api
+
+curl -X GET "http://localhost:8080/foo/v1/greetings/fff" -H  "accept: application/json"
+
+

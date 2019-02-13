@@ -1,0 +1,46 @@
+== Demonstrates Camel Elastic Search
+
+https://www.elastic.co/support/eol
+
+. Run test with a custom build EleasticSearch RequestObject
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ mvn clean test
+----
+
+mvn dependency:tree | grep elastic
+
+[INFO] +- org.apache.camel:camel-elasticsearch-rest:jar:2.21.0.fuse-720050-redhat-00001:compile
+[INFO] |  +- org.elasticsearch.client:elasticsearch-rest-high-level-client:jar:6.1.1:compile
+[INFO] |  |  +- org.elasticsearch.client:elasticsearch-rest-client:jar:6.1.1:compile
+[INFO] |  |  \- org.elasticsearch.plugin:aggs-matrix-stats-client:jar:6.1.1:compile
+[INFO] |  \- org.elasticsearch.client:elasticsearch-rest-client-sniffer:jar:6.1.1:compile
+[INFO] +- org.elasticsearch.client:transport:jar:6.1.1:test
+[INFO] |  +- org.elasticsearch:elasticsearch:jar:6.1.1:compile
+[INFO] |  |  +- org.elasticsearch:securesm:jar:1.2:compile
+[INFO] |  |  +- org.elasticsearch:elasticsearch-cli:jar:6.1.1:compile
+[INFO] |  |  \- org.elasticsearch:jna:jar:4.4.0-1:compile
+[INFO] |  +- org.elasticsearch.plugin:transport-netty4-client:jar:6.1.1:test
+[INFO] |  +- org.elasticsearch.plugin:reindex-client:jar:6.1.1:test
+[INFO] |  +- org.elasticsearch.plugin:lang-mustache-client:jar:6.1.1:test
+[INFO] |  +- org.elasticsearch.plugin:percolator-client:jar:6.1.1:test
+[INFO] |  \- org.elasticsearch.plugin:parent-join-client:jar:6.1.1:compile
+[INFO] \- org.codelibs:elasticsearch-cluster-runner:jar:6.1.1.0:test
+[INFO]    +- org.codelibs.elasticsearch.module:percolator:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:repository-url:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:transport-netty4:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:tribe:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:lang-painless:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:ingest-common:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:mapper-extras:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:parent-join:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:reindex:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:lang-expression:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:lang-mustache:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:analysis-common:jar:6.1.1:test
+[INFO]    +- org.codelibs.elasticsearch.module:aggs-matrix-stats:jar:6.1.1:test
+
+
+
+

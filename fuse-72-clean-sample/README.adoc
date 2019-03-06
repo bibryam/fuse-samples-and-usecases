@@ -12,4 +12,4 @@ A clean unedited Spring Boot Camel service generated at https://developers.redha
 $ mvn clean package
 $ mvn spring-boot:run
 ----
-. Go to link:http://localhost:8080[] and then follow the instructions on that page.
+. Go to link:http://localhost:8080/rest-http-index.html[] and then follow the instructions on that page.
